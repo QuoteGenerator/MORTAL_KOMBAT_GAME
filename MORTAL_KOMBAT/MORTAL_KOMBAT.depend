@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1774035570 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\main.cpp
+	<iostream>
+	<memory>
+	<vector>
+	"Game.h"
+	"Character.h"
+	"RiskyCharacter.h"
+	"Ability.h"
+	"Team.h"
+
+1774036866 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\game.cpp
+	"Game.h"
+	<iostream>
+	<vector>
+	<memory>
+
+1774035301 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\game.h
+	"Character.h"
+	"Ability.h"
+	<vector>
+	<memory>
+
+1774029490 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\character.cpp
+	"Character.h"
+
+1774029516 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\character.h
+	<string>
+
+1774026524 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\mixcharacter.cpp
+	"MixCharacter.h"
+
+1774026496 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\mixcharacter.h
+
+1774026521 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\noriskcharacter.cpp
+	"NoRiskCharacter.h"
+
+1774026494 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\noriskcharacter.h
+
+1774025720 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\team.cpp
+	"Team.h"
+
+1774025720 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\team.h
+
+1774026650 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\riskycharacter.cpp
+	"RiskyCharacter.h"
+
+1774027001 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\riskycharacter.h
+	"Character.h"
+
+1774034790 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\ability.h
+	<string>
+
+1774035049 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\ability.cpp
+	"Ability.h"
+
