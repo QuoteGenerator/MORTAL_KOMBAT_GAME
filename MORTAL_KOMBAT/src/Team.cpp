@@ -1,11 +1,13 @@
 #include "Team.h"
+#include "Character.h"
 
 Team::Team()
 {
     //ctor
 }
 
-Team::~Team()
-{
-    //dtor
+
+/*void Team::addCharacterToTeam(Character newCharacter){
+    allCharactersInThisTeam.push_back(newCharacter);
 }
+*/

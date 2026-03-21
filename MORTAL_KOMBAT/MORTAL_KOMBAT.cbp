@@ -37,12 +37,16 @@
 		<Unit filename="include/Ability.h" />
 		<Unit filename="include/Character.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/MixCharacter.h" />
+		<Unit filename="include/NoRiskyCharacter.h" />
 		<Unit filename="include/RiskyCharacter.h" />
 		<Unit filename="include/Team.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Ability.cpp" />
 		<Unit filename="src/Character.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/MixCharacter.cpp" />
+		<Unit filename="src/NoRiskyCharacter.cpp" />
 		<Unit filename="src/RiskyCharacter.cpp" />
 		<Unit filename="src/Team.cpp" />
 		<Extensions />

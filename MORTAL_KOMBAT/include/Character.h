@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 class Character
 {
     public:
@@ -11,6 +10,8 @@ class Character
         virtual ~Character();
         std::string getName();
         int getHealthPoints();
+
+        virtual std::string getCharacterTypeName() const = 0;
 
     protected:
 

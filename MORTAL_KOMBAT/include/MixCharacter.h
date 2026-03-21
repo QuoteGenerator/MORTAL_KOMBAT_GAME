@@ -1,11 +1,14 @@
 #ifndef MIXCHARACTER_H
 #define MIXCHARACTER_H
 
+#include "Character.h"
 
-class MixCharacter
+
+class MixCharacter : public Character
 {
     public:
-        MixCharacter();
+        MixCharacter(std::string name, int hp);
+        std::string getCharacterTypeName() const override;
 
     protected:
 

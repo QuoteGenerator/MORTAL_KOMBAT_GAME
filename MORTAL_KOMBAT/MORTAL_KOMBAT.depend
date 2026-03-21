@@ -1,21 +1,27 @@
 # depslib dependency file v1.0
-1774035570 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\main.cpp
+1774095934 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\main.cpp
 	<iostream>
 	<memory>
 	<vector>
 	"Game.h"
 	"Character.h"
 	"RiskyCharacter.h"
+	"NoRiskyCharacter.h"
+	"MixCharacter.h"
 	"Ability.h"
 	"Team.h"
 
-1774036866 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\game.cpp
+1774123561 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\game.cpp
 	"Game.h"
 	<iostream>
 	<vector>
 	<memory>
+	"RiskyCharacter.h"
+	"MixCharacter.h"
+	"NoRiskyCharacter.h"
+	"Team.h"
 
-1774035301 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\game.h
+1774118278 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\game.h
 	"Character.h"
 	"Ability.h"
 	<vector>
@@ -24,28 +30,34 @@
 1774029490 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\character.cpp
 	"Character.h"
 
-1774029516 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\character.h
+1774090093 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\character.h
 	<string>
 
-1774026524 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\mixcharacter.cpp
+1774094699 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\mixcharacter.cpp
 	"MixCharacter.h"
+	"Character.h"
 
-1774026496 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\mixcharacter.h
+1774094661 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\mixcharacter.h
+	"Character.h"
 
 1774026521 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\noriskcharacter.cpp
 	"NoRiskCharacter.h"
 
 1774026494 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\noriskcharacter.h
 
-1774025720 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\team.cpp
+1774119643 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\team.cpp
 	"Team.h"
+	"Character.h"
 
-1774025720 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\team.h
+1774119637 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\team.h
+	<vector>
+	"Character.h"
 
-1774026650 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\riskycharacter.cpp
+1774094604 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\riskycharacter.cpp
 	"RiskyCharacter.h"
+	"Character.h"
 
-1774027001 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\riskycharacter.h
+1774090235 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\riskycharacter.h
 	"Character.h"
 
 1774034790 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\ability.h
@@ -53,4 +65,11 @@
 
 1774035049 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\ability.cpp
 	"Ability.h"
+
+1774095045 source:c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\src\noriskycharacter.cpp
+	"NoRiskyCharacter.h"
+	"Character.h"
+
+1774095018 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\noriskycharacter.h
+	"Character.h"
 

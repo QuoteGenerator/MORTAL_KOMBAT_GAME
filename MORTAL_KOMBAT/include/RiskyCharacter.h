@@ -8,6 +8,7 @@ class RiskyCharacter : public Character
 {
     public:
         RiskyCharacter(std::string name, int hp);
+        std::string getCharacterTypeName() const override;
 
     protected:
 
