@@ -3,6 +3,7 @@
 
 #include "Character.h"
 #include "Ability.h"
+#include "Team.h"
 #include <vector>
 #include <memory>
 
@@ -23,19 +24,21 @@ class Game
 
         void addCharacterToGame(std::unique_ptr<Character> newCharacter);
         void addAbilityToGame(std::unique_ptr<Ability> newAbility);
+        std::unique_ptr<Ability>& getAllAbilitys();
 
         void printAllCharacters();
         void Player_VS_Player(std::string gameMode);
         void Player_VS_NPC(std::string gameMode);
         void NPC_VS_NPC(std::string gameMode);
 
+        void startFight(Team& t_1, Team& t_2);
 
 
 
 
     private:
         std::vector<std::unique_ptr<Character>> allCharacters;
-        std::vector<std::unique_ptr<Ability>> allAblilitys;
+        std::vector<std::unique_ptr<Ability>> allAbilitys;
 };
 
 #endif // GAME_H

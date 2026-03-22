@@ -73,3 +73,80 @@
 1774095018 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\noriskycharacter.h
 	"Character.h"
 
+1774131054 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\main.cpp
+	<iostream>
+	<memory>
+	<vector>
+	"Game.h"
+	"Character.h"
+	"RiskyCharacter.h"
+	"NoRiskyCharacter.h"
+	"MixCharacter.h"
+	"Ability.h"
+	"Team.h"
+
+1774130156 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\game.h
+	"Character.h"
+	"Ability.h"
+	"Team.h"
+	<vector>
+	<memory>
+
+1774140001 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\character.h
+	<string>
+	<memory>
+	<array>
+	"Ability.h"
+
+1774135359 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\ability.h
+	<string>
+	<memory>
+
+1774138914 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\riskycharacter.h
+	"Character.h"
+
+1774138915 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\noriskycharacter.h
+	"Character.h"
+
+1774138903 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\mixcharacter.h
+	"Character.h"
+
+1774128734 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\team.h
+	<vector>
+	<memory>
+	"Character.h"
+
+1774135350 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\ability.cpp
+	"Ability.h"
+
+1774139986 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\character.cpp
+	"Character.h"
+	"Ability.h"
+
+1774143007 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\game.cpp
+	"Game.h"
+	<iostream>
+	<vector>
+	<memory>
+	"RiskyCharacter.h"
+	"MixCharacter.h"
+	"NoRiskyCharacter.h"
+	"Team.h"
+
+1774139925 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\mixcharacter.cpp
+	"MixCharacter.h"
+	"Character.h"
+	"Ability.h"
+
+1774139231 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\noriskycharacter.cpp
+	"NoRiskyCharacter.h"
+	"Character.h"
+
+1774139233 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\riskycharacter.cpp
+	"RiskyCharacter.h"
+	"Character.h"
+
+1774128752 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\team.cpp
+	"Team.h"
+	"Character.h"
+

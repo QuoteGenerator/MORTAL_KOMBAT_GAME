@@ -16,3 +16,8 @@ int Ability::getDamage(){
 float Ability::getHitChance(){
     return hitChance;
 }
+
+
+std::unique_ptr<Ability> Ability::clone(){
+    return std::make_unique<Ability>(*this);
+}

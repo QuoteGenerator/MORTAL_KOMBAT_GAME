@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "Ability.h"
 
 
 Character::Character(std::string givenName, int givenHealthPoints){
@@ -20,4 +21,27 @@ std::string Character::getName(){
 int Character::getHealthPoints(){
     return healthPoints;
 }
+
+
+int Character::getLostGames(){
+    return lostGames;
+}
+
+int Character::getWonGames(){
+    return wonGames;
+}
+
+void Character::decreaseHp(int dealedDamage){
+    healthPoints -= dealedDamage;
+}
+
+
+std::array<std::unique_ptr<Ability>, 2>& Character::getCharacterAbilitys(){
+    return abilitys;
+}
+
+void Character::addCharacterAbility(Ability& newAbility, int index){
+    abilitys[index] = newAbility.clone();
+}
+
 

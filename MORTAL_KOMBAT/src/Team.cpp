@@ -7,7 +7,11 @@ Team::Team()
 }
 
 
-/*void Team::addCharacterToTeam(Character newCharacter){
-    allCharactersInThisTeam.push_back(newCharacter);
+void Team::addCharacterToTeam(Character& newCharacter){
+    allCharactersFromThisTeam.push_back(newCharacter.clone());
 }
-*/
+
+
+std::vector<std::unique_ptr<Character>>& Team::getAllCharactersFromThisTeam(){
+    return allCharactersFromThisTeam;
+}

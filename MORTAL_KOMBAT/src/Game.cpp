@@ -59,8 +59,141 @@ void Game::printAllCharacters(){
         << "Name: " << (*c)->getName()
         << ", Hp: " << (*c)->getHealthPoints()
         << ", Character Type: " << (*c)->getCharacterTypeName()
+        << ", Lost Games: " << (*c)->getLostGames()
+        << ", Won Games: " << (*c)->getWonGames()
         << std::endl;
     }
+}
+
+void Game::startFight(Team& t_1, Team& t_2){
+    auto& allCharactersFromTeam_t1 = t_1.getAllCharactersFromThisTeam();
+    auto& allCharactersFromTeam_t2 = t_2.getAllCharactersFromThisTeam();
+
+    int chosenAbility = 0;
+
+    std::cout << "\n\n\n\nAll Abilitys: " << std::endl;
+    int i = 0;
+    for(auto a = allAbilitys.begin(); a != allAbilitys.end(); a++){
+
+
+        std::cout << "- "
+        <<"("<<i<<")"
+        << "Name: " << (*a)->getName()
+        << ", Damage: " << (*a)->getDamage()
+        << ", Hit-Chance: " << (*a)->getHitChance() <<"%"<< std::endl;
+        i++;
+    }
+
+    std::cout << "\nTeam1:\n";
+    for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); c++){
+        std::cout << "Choose Ability for: " << (*c)->getName() << std::endl;
+        for(int i = 0; i < 2; i++){
+            std::cout << "("<<i<<")" << "Ability: "; std::cin >> chosenAbility;
+            (*c)->addCharacterAbility(*allAbilitys[chosenAbility], i);
+        }
+    }
+    std::cout << "\nTeam2:\n";
+    for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); c++){
+        std::cout << "Choose Ability for: " << (*c)->getName() << std::endl;
+        for(int i = 0; i < 2; i++){
+            std::cout << "("<<i<<")" << "Ability: "; std::cin >> chosenAbility;
+            (*c)->addCharacterAbility(*allAbilitys[chosenAbility], i);
+        }
+    }
+
+    std::cout << "\n\nTeam1::-----------------------------------------------------------------------------------------------------\n";
+    for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); c++){
+        std::cout << "Name: " << (*c)->getName() << "\t\t"
+        << "Hp: " << (*c)->getHealthPoints() << "\t\t"
+        << "Class: " << (*c)->getCharacterTypeName() << "\t"
+        << "Ability [0]: " << (*c)->getCharacterAbilitys()[0]->getName() << "\t"
+        << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName();
+        std::cout << std::endl;
+    }
+    std::cout << "\n\nTeam2:-----------------------------------------------------------------------------------------------------\n";
+    for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); c++){
+        std::cout << "Name: " << (*c)->getName() << "\t\t"
+        << "Hp: " << (*c)->getHealthPoints() << "\t\t"
+        << "Class: " << (*c)->getCharacterTypeName() << "\t"
+        << "Ability [0]: " << (*c)->getCharacterAbilitys()[0]->getName() << "\t"
+        << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName();
+        std::cout << std::endl;
+    }
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    int combatIndex = 0;
+    while(!allCharactersFromTeam_t1.empty() && !allCharactersFromTeam_t2.empty()){
+        std::cout << "\n\nTeam1 make your move!\n";
+        for(int i = 0; i < allCharactersFromTeam_t1.size(); i++){
+            std::cout << allCharactersFromTeam_t1[i]->getName() << " Choose: "; std::cin >> combatIndex;
+            allCharactersFromTeam_t2[rand() % allCharactersFromTeam_t2.size()]->decreaseHp(allCharactersFromTeam_t1[i]->dealDamage(combatIndex));
+            for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); ){
+                if((*c)->getHealthPoints() <= 0){
+                        std::cout << "\n\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    c = allCharactersFromTeam_t2.erase(c);
+                } else {
+                    c++;
+                }
+            }
+            if(allCharactersFromTeam_t2.empty()){
+                break;
+            }
+        }
+        if(allCharactersFromTeam_t2.empty()){
+            break;
+        }
+
+
+        std::cout << "Team2 make your move!\n";
+        for(int i = 0; i < allCharactersFromTeam_t2.size(); i++){
+            std::cout << allCharactersFromTeam_t2[i]->getName() << " Choose: "; std::cin >> combatIndex;
+            allCharactersFromTeam_t1[rand() % allCharactersFromTeam_t1.size()]->decreaseHp(allCharactersFromTeam_t2[i]->dealDamage(combatIndex));
+
+            for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); ){
+                if((*c)->getHealthPoints() <= 0){
+                    std::cout << "\n\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    c = allCharactersFromTeam_t1.erase(c);
+                } else {
+                    c++;
+                }
+
+            }
+            if(allCharactersFromTeam_t1.empty()){
+                break;
+            }
+        }
+
+
+        std::cout << "\n\nTeam1:-----------------------------------------------------------------------------------------------------\n";
+        for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); c++){
+            std::cout << "Name: " << (*c)->getName() << "\t\t"
+            << "Hp: " << (*c)->getHealthPoints() << "\t\t"
+            << "Class: " << (*c)->getCharacterTypeName() << "\t"
+            << "Ability [0]: " << (*c)->getCharacterAbilitys()[0]->getName() << "\t"
+            << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName();
+            std::cout << std::endl;
+        }
+        std::cout << "\n\nTeam2:-----------------------------------------------------------------------------------------------------\n";
+        for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); c++){
+            std::cout << "Name: " << (*c)->getName() << "\t\t"
+            << "Hp: " << (*c)->getHealthPoints() << "\t\t"
+            << "Class: " << (*c)->getCharacterTypeName() << "\t"
+            << "Ability [0]: " << (*c)->getCharacterAbilitys()[0]->getName() << "\t"
+            << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName();
+            std::cout << std::endl;
+        }
+    }
+
+    if(allCharactersFromTeam_t1.empty() && allCharactersFromTeam_t2.empty()){
+        std::cout << "\n\n!!!IT IS A DRAW!!!\n\n";
+    } else if(allCharactersFromTeam_t1.empty()){
+        std::cout << "\n\n!!!TEAM 2 WINS!!!\n\n";
+    } else if(allCharactersFromTeam_t2.empty()){
+        std::cout << "\n\n!!!TEAM 1 WINS!!!\n\n";
+    }
+
 }
 
 void Game::Player_VS_Player(std::string gameMode){
@@ -77,7 +210,23 @@ void Game::Player_VS_Player(std::string gameMode){
             std::cout << "\nChoose Character (write name): "; std::cin >> chosenCharacter;
             for(auto c = allCharacters.begin(); c != allCharacters.end(); c++){
                 if((*c)->getName() == chosenCharacter){
-                    //team.addCharacter((*c));
+                    team_1.addCharacterToTeam(*(*c));
+                    std::cout << "CHARACTER GOT FOUND!!!\n";
+                    characterFound = true;
+                    break;
+                }
+            }
+            if(characterFound == false){
+                std::cout << "CHARACTER NOT FOUND!!!\n";
+            }
+        }
+        characterFound = false;
+        std::cout << "\nPlayer_2";
+        while(characterFound == false){
+            std::cout << "\nChoose Character (write name): "; std::cin >> chosenCharacter;
+            for(auto c = allCharacters.begin(); c != allCharacters.end(); c++){
+                if((*c)->getName() == chosenCharacter){
+                    team_2.addCharacterToTeam(*(*c));
                     std::cout << "CHARACTER GOT FOUND!!!";
                     characterFound = true;
                     break;
@@ -87,24 +236,58 @@ void Game::Player_VS_Player(std::string gameMode){
                 std::cout << "CHARACTER NOT FOUND!!!";
             }
         }
-    } else if(gameMode == "3v3"){
+
+
+    startFight(team_1, team_2);
+
+
+
+
+} else if(gameMode == "3v3"){
+    std::cout << "\nPlayer_1";
+    for(int i = 0; i < 3; i++){
+        characterFound = false;
+        while(characterFound == false){
+            std::cout << "\nChoose Character (write name): ";
+            std::cin >> chosenCharacter;
+
+            for(auto c = allCharacters.begin(); c != allCharacters.end(); c++){
+                if((*c)->getName() == chosenCharacter){
+                    team_1.addCharacterToTeam(*(*c));
+                    std::cout << "CHARACTER GOT FOUND!!!";
+                    characterFound = true;
+                    break;
+                }
+            }
+
+            if(characterFound == false){
+                std::cout << "CHARACTER NOT FOUND!!!";
+            }
+        }
+    }
+
+        std::cout << "\nPlayer_2";
         for(int i = 0; i < 3; i++){
             characterFound = false;
             while(characterFound == false){
-                std::cout << "\nChoose Character (write name): "; std::cin >> chosenCharacter;
+                std::cout << "\nChoose Character (write name): ";
+                std::cin >> chosenCharacter;
+
                 for(auto c = allCharacters.begin(); c != allCharacters.end(); c++){
                     if((*c)->getName() == chosenCharacter){
-                        //team.addCharacter((*c));
+                        team_2.addCharacterToTeam(*(*c));
                         std::cout << "CHARACTER GOT FOUND!!!";
                         characterFound = true;
                         break;
                     }
                 }
+
                 if(characterFound == false){
                     std::cout << "CHARACTER NOT FOUND!!!";
                 }
             }
         }
+        startFight(team_1, team_2);
     }
 }
 
@@ -126,13 +309,14 @@ void Game::NPC_VS_NPC(std::string gameMode){
 
 void Game::printChooseWhoToFight(){
     std::cout << "(1) Player vs Player" << std::endl;
-    std::cout << "(2) Player vs NPC" << std::endl;;
+    std::cout << "(2) Player vs NPC" << std::endl;
     std::cout << "(3) NPC vs NPC" << std::endl;
     std::cout << "(4) Main Menu" << std::endl;
 }
 
 void Game::printCharacterCreation(){
     int createCharacterInput = 0;
+    bool givenNameDoesExist = false;
     std::cout << "(1) Create Custom Character" << std::endl;
     std::cout << "(2) Main Menu" << std::endl;
     std::cout << "Choose: "; std::cin >> createCharacterInput;
@@ -144,8 +328,24 @@ void Game::printCharacterCreation(){
     if(createCharacterInput == 1){
         std::string name;
         int healthPoints;
-
         std::cout << "Name: "; std::cin >> name;
+
+        bool givenNameDoesExist = true;
+        while(givenNameDoesExist == true){
+            givenNameDoesExist = false;
+
+            for(auto& c : allCharacters){
+                if(c->getName() == name){
+                    givenNameDoesExist = true;
+                }
+            }
+
+            if(givenNameDoesExist){
+                std::cout << "Name already exists!: ";
+                std::cout << "Enter new Name: "; std::cin >> name;
+            }
+        }
+
         std::cout << "Hp: "; std::cin >> healthPoints;
 
         std::cout << "\nChoose Character Type\n";
@@ -169,16 +369,24 @@ void Game::printCharacterCreation(){
         if(createCharacterInput == 1){
             addCharacterToGame(std::make_unique<RiskyCharacter>(name, healthPoints));
         }
+        if(createCharacterInput == 2){
+            addCharacterToGame(std::make_unique<MixCharacter>(name, healthPoints));
+        }
+        if(createCharacterInput == 3){
+            addCharacterToGame(std::make_unique<NoRiskyCharacter>(name, healthPoints));
+        }
     }
 
 }
 
 void Game::printCharacters(){
+    std::cout << "\nAll Characters: \n";
     printAllCharacters();
+
     std::cout << std::endl;
 
     std::cout << "\nAll Abilitys: " << std::endl;
-    for(auto a = allAblilitys.begin(); a != allAblilitys.end(); a++){
+    for(auto a = allAbilitys.begin(); a != allAbilitys.end(); a++){
 
 
         std::cout << "- "
@@ -186,6 +394,8 @@ void Game::printCharacters(){
         << ", Damage: " << (*a)->getDamage()
         << ", Hit-Chance: " << (*a)->getHitChance() <<"%"<< std::endl;
     }
+
+    std::cout << "\nAll Classes: ";
 
     std::cout << "\n(1) Risky"
               << "\n    + +40% hit damage"
@@ -207,7 +417,7 @@ void Game::addCharacterToGame(std::unique_ptr<Character> newCharacter){
 }
 
 void Game::addAbilityToGame(std::unique_ptr<Ability> newAbility){
-    allAblilitys.push_back(std::move(newAbility));
+    allAbilitys.push_back(std::move(newAbility));
 }
 
 void Game::quit(){
