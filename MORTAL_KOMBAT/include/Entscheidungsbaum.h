@@ -1,14 +1,16 @@
 #ifndef ENTSCHEIDUNGSBAUM_H
 #define ENTSCHEIDUNGSBAUM_H
 
-#include <vector>
-#include <memory>
-
-class Character;
 
 class Entscheidungsbaum
 {
+    public:
+        Entscheidungsbaum();
+        virtual ~Entscheidungsbaum();
 
+    protected:
+
+    private:
 };
 
 #endif // ENTSCHEIDUNGSBAUM_H

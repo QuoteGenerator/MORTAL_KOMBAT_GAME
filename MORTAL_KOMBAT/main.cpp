@@ -10,9 +10,6 @@
 #include "Ability.h"
 #include "Team.h"
 
-#include "HealEntscheidungsbaum.h"
-#include "AngriffAufStaerkstenEntscheidungsbaum.h"
-
 
 
 int main()

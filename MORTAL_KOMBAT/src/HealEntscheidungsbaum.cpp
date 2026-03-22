@@ -1,2 +1,11 @@
 #include "HealEntscheidungsbaum.h"
-#include "Character.h"
+
+HealEntscheidungsbaum::HealEntscheidungsbaum()
+{
+    //ctor
+}
+
+HealEntscheidungsbaum::~HealEntscheidungsbaum()
+{
+    //dtor
+}
