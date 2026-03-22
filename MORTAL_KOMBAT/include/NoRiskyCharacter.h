@@ -3,7 +3,6 @@
 
 #include "Character.h"
 
-
 class NoRiskyCharacter : public Character
 {
     public:

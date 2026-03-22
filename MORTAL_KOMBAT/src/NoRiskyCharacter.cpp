@@ -28,5 +28,6 @@ int NoRiskyCharacter::dealDamage(int index){
    if(index < 0 || index >= getCharacterAbilitys().size() || !getCharacterAbilitys()[index]){
         return 0;
     }
-    return getCharacterAbilitys()[index]->getDamage();
+
+    return getCharacterAbilitys()[index]->getDamage() * 0.9;
 }

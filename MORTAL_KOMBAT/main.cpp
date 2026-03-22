@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <time.h>
 #include "Game.h"
 #include "Character.h"
 #include "RiskyCharacter.h"
@@ -9,18 +10,23 @@
 #include "Ability.h"
 #include "Team.h"
 
+#include "HealEntscheidungsbaum.h"
+#include "AngriffAufStaerkstenEntscheidungsbaum.h"
+
+
 
 int main()
 {
     Game game;
+    srand(time(nullptr));
 
     game.addCharacterToGame(std::make_unique<RiskyCharacter>("Goro", 105));
     game.addCharacterToGame(std::make_unique<MixCharacter>("Sonya", 100));
     game.addCharacterToGame(std::make_unique<NoRiskyCharacter>("Scorpion", 90));
 
-    game.addAbilityToGame(std::make_unique<Ability>("Uppercut", 30, 50)); //0
-    game.addAbilityToGame(std::make_unique<Ability>("Leg Kick", 15, 90)); //1
-    game.addAbilityToGame(std::make_unique<Ability>("Double Hit (2x Attack)", 10, 80)); //2
+    game.addAbilityToGame(std::make_unique<Ability>("Uppercut", 30, 50));
+    game.addAbilityToGame(std::make_unique<Ability>("Leg Kick", 15, 90));
+    game.addAbilityToGame(std::make_unique<Ability>("Double Hit (2x Attack)", 10, 80));
 
     int menuInput = 0;
     while(1){

@@ -51,4 +51,3 @@ void Character::increaseWins(){
     wonGames += 1;
 }
 
-

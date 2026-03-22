@@ -31,8 +31,13 @@ class Game
         void Player_VS_NPC(std::string gameMode);
         void NPC_VS_NPC(std::string gameMode);
 
-        void startFight(Team& t_1, Team& t_2);
+        void startFight(Team& t_1, Team& t_2, bool, bool);
 
+
+        void printCharactersFromTeams(std::vector<std::unique_ptr<Character>>& allCharactersFromTeam_t1,
+                                    std::vector<std::unique_ptr<Character>>& allCharactersFromTeam_t2);
+
+        void printAllAbilitys();
 
 
 

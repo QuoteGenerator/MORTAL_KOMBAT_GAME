@@ -3,7 +3,6 @@
 
 #include "Character.h"
 
-
 class MixCharacter : public Character
 {
     public:

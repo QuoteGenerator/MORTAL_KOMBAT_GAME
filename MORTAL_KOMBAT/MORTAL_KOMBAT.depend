@@ -73,10 +73,11 @@
 1774095018 c:\users\aleks\desktop\fh_technikum\semester_2\oop\3_Übung\mortal_kombat\include\noriskycharacter.h
 	"Character.h"
 
-1774131054 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\main.cpp
+1774199374 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\main.cpp
 	<iostream>
 	<memory>
 	<vector>
+	<time.h>
 	"Game.h"
 	"Character.h"
 	"RiskyCharacter.h"
@@ -84,31 +85,34 @@
 	"MixCharacter.h"
 	"Ability.h"
 	"Team.h"
+	"HealEntscheidungsbaum.h"
+	"AngriffAufStaerkstenEntscheidungsbaum.h"
 
-1774130156 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\game.h
+1774199242 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\game.h
 	"Character.h"
 	"Ability.h"
 	"Team.h"
 	<vector>
 	<memory>
 
-1774144928 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\character.h
+1774194543 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\character.h
 	<string>
 	<memory>
 	<array>
 	"Ability.h"
+	"Entscheidungsbaum.h"
 
 1774135359 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\ability.h
 	<string>
 	<memory>
 
-1774138914 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\riskycharacter.h
+1774196156 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\riskycharacter.h
 	"Character.h"
 
-1774138915 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\noriskycharacter.h
+1774196172 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\noriskycharacter.h
 	"Character.h"
 
-1774138903 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\mixcharacter.h
+1774196125 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\mixcharacter.h
 	"Character.h"
 
 1774128734 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\team.h
@@ -119,11 +123,11 @@
 1774135350 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\ability.cpp
 	"Ability.h"
 
-1774144420 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\character.cpp
+1774198275 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\character.cpp
 	"Character.h"
 	"Ability.h"
 
-1774143007 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\game.cpp
+1774198434 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\game.cpp
 	"Game.h"
 	<iostream>
 	<vector>
@@ -133,20 +137,42 @@
 	"NoRiskyCharacter.h"
 	"Team.h"
 
-1774139925 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\mixcharacter.cpp
+1774198156 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\mixcharacter.cpp
 	"MixCharacter.h"
 	"Character.h"
 	"Ability.h"
+	<iostream>
 
-1774139231 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\noriskycharacter.cpp
+1774198168 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\noriskycharacter.cpp
 	"NoRiskyCharacter.h"
 	"Character.h"
 
-1774139233 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\riskycharacter.cpp
+1774198166 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\riskycharacter.cpp
 	"RiskyCharacter.h"
 	"Character.h"
 
 1774128752 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\team.cpp
 	"Team.h"
 	"Character.h"
+
+1774192470 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\entscheidungsbaum.cpp
+	"Entscheidungsbaum.h"
+
+1774197971 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\entscheidungsbaum.h
+	<vector>
+	<memory>
+
+1774197985 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\healentscheidungsbaum.cpp
+	"HealEntscheidungsbaum.h"
+	"Character.h"
+
+1774197959 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\healentscheidungsbaum.h
+	"Entscheidungsbaum.h"
+
+1774198006 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\angriffaufstaerkstenentscheidungsbaum.cpp
+	"AngriffAufStaerkstenEntscheidungsbaum.h"
+	"Character.h"
+
+1774197965 d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\include\angriffaufstaerkstenentscheidungsbaum.h
+	"Entscheidungsbaum.h"
 

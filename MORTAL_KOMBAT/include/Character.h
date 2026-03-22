@@ -5,6 +5,7 @@
 #include <memory>
 #include <array>
 #include "Ability.h"
+#include "Entscheidungsbaum.h"
 
 class Character
 {
@@ -27,6 +28,9 @@ class Character
         void increaseLosses();
         void increaseWins();
 
+        void setEntscheidungsbaum(std::unique_ptr<Entscheidungsbaum> newBaum);
+        Entscheidungsbaum* getEntscheidungsbaum();
+
 
 
     protected:
@@ -37,6 +41,7 @@ class Character
         int healthPoints;
         int lostGames = 0;
         int wonGames = 0;
+        std::unique_ptr<Entscheidungsbaum> entscheidungsbaum;
 
 };
 

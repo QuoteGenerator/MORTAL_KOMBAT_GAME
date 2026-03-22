@@ -30,5 +30,9 @@ int RiskyCharacter::dealDamage(int index){
        if(index < 0 || index >= getCharacterAbilitys().size() || !getCharacterAbilitys()[index]){
         return 0;
     }
-    return getCharacterAbilitys()[index]->getDamage();
+    if(rand() % 101 < getCharacterAbilitys()[index]->getHitChance() * 0.5){
+        return getCharacterAbilitys()[index]->getDamage()*1.4;
+    } else {
+        return 0;
+    }
 }

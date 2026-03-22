@@ -1,6 +1,7 @@
 #include "MixCharacter.h"
 #include "Character.h"
 #include "Ability.h"
+#include <iostream>
 
 MixCharacter::MixCharacter(std::string name, int hp) : Character(name, hp)
 {
@@ -29,5 +30,9 @@ int MixCharacter::dealDamage(int index){
     if(index < 0 || index >= getCharacterAbilitys().size() || !getCharacterAbilitys()[index]){
         return 0;
     }
-    return getCharacterAbilitys()[index]->getDamage();
+    if(rand() % 101 < getCharacterAbilitys()[index]->getHitChance() * 1.2){
+        return getCharacterAbilitys()[index]->getDamage()*1.1;
+    } else {
+        return 0;
+    }
 }
