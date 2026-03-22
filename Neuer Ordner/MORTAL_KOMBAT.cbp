@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MORTAL_KOMBAT" />
+		<Option execution_dir="D:/Work/FH/semester 2/OOP/übungen/Übung_4/MORTAL_KOMBAT_GAME/MORTAL_KOMBAT/" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/MORTAL_KOMBAT" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/MORTAL_KOMBAT" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="../MORTAL_KOMBAT/include/Ability.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/Character.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/Entscheidungsbaum.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/Game.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/HealEntscheidungsbaum.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/MixCharacter.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/NoRiskyCharacter.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/RageEntscheidungsbaum.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/RiskyCharacter.h" />
+		<Unit filename="../MORTAL_KOMBAT/include/Team.h" />
+		<Unit filename="../MORTAL_KOMBAT/main.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/Ability.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/Character.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/Entscheidungsbaum.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/Game.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/HealEntscheidungsbaum.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/MixCharacter.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/NoRiskyCharacter.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/RageEntscheidungsbaum.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/RiskyCharacter.cpp" />
+		<Unit filename="../MORTAL_KOMBAT/src/Team.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

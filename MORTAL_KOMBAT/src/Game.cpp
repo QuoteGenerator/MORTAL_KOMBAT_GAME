@@ -27,7 +27,22 @@ void Game::printGameModes(){
     std::cout << "(1) 1 vs 1" << std::endl;
     std::cout << "(2) 3 vs 3" << std::endl;
     std::cout << "(3) Game Menu" << std::endl;
-    std::cout << "Choose: "; std::cin >> gameModeInput;
+
+    while(true){
+        std::cout << "Choose: ";
+        if(!(std::cin >> gameModeInput)){
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Invalid input!\n";
+            continue;
+        }
+
+        if(gameModeInput >= 1 && gameModeInput <= 3){
+            break;
+        }
+
+        std::cout << "Invalid choice!\n";
+    }
 
     if(gameModeInput == 3){
         return;
@@ -36,16 +51,28 @@ void Game::printGameModes(){
     } else if(gameModeInput == 2){
         printChooseCharacter("3v3");
     }
-
 }
 
 void Game::printChooseCharacter(std::string gameMode){
-
-
     int whoToFightInput = 0;
 
     printChooseWhoToFight();
-    std::cout << "Choose: "; std::cin >> whoToFightInput;
+
+    while(true){
+        std::cout << "Choose: ";
+        if(!(std::cin >> whoToFightInput)){
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Invalid input!\n";
+            continue;
+        }
+
+        if(whoToFightInput >= 1 && whoToFightInput <= 4){
+            break;
+        }
+
+        std::cout << "Invalid choice!\n";
+    }
 
     if(whoToFightInput == 4){
         return;
@@ -627,7 +654,21 @@ void Game::printCharacterCreation(){
     bool givenNameDoesExist = false;
     std::cout << "(1) Create Custom Character" << std::endl;
     std::cout << "(2) Main Menu" << std::endl;
-    std::cout << "Choose: "; std::cin >> createCharacterInput;
+    while(true){
+        std::cout << "Choose: ";
+        if(!(std::cin >> createCharacterInput)){
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Invalid input!\n";
+            continue;
+        }
+
+        if(createCharacterInput == 1 || createCharacterInput == 2){
+            break;
+        }
+
+        std::cout << "Invalid choice!\n";
+    }
 
     if(createCharacterInput == 2){
         return;
@@ -654,23 +695,38 @@ void Game::printCharacterCreation(){
             }
         }
 
-        std::cout << "Hp: "; std::cin >> healthPoints;
+        while(1){
+            std::cout << "Hp: ";
+            if(!(std::cin >> healthPoints)){
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                std::cout << "Invalid input!\n";
+                continue;
+            }
 
-        std::cout << "\nChoose Character Type\n";
+            if(healthPoints > 0){
+                break;
+            }
 
-        std::cout << "\n(1) Risky"
-                  << "\n    + +40% hit damage"
-                  << "\n    + -50% hit chance\n";
+            std::cout << "Hp needs to be bigger then 0!!!\n";
+        }
 
-        std::cout << "\n(2) Mix"
-                  << "\n    + +10% hit damage"
-                  << "\n    + +20% hit chance"
-                  << "\n    - 30% chance to take self-damage\n";
+            std::cout << "\nChoose Character Type\n";
 
-        std::cout << "\n(3) NoRisky"
-                  << "\n    - -10% hit damage\n";
+            std::cout << "\n(1) Risky"
+                      << "\n    + +40% hit damage"
+                      << "\n    + -50% hit chance\n";
 
-        std::cout << "\nChoose: "; std::cin >> createCharacterInput;
+            std::cout << "\n(2) Mix"
+                      << "\n    + +10% hit damage"
+                      << "\n    + +20% hit chance"
+                      << "\n    - 30% chance to take self-damage\n";
+
+            std::cout << "\n(3) NoRisky"
+                      << "\n    - -10% hit damage\n";
+
+            std::cout << "\nChoose: "; std::cin >> createCharacterInput;
+
 
 
         if(createCharacterInput == 1){

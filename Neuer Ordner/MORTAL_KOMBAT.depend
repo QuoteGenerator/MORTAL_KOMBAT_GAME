@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1774220119 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\main.cpp
+	<iostream>
+	<memory>
+	<vector>
+	<time.h>
+	"Game.h"
+	"Character.h"
+	"RiskyCharacter.h"
+	"NoRiskyCharacter.h"
+	"MixCharacter.h"
+	"Ability.h"
+	"Team.h"
+
+1774135350 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\ability.cpp
+	"Ability.h"
+
+1774198275 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\character.cpp
+	"Character.h"
+	"Ability.h"
+
+1774200534 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\entscheidungsbaum.cpp
+	"Entscheidungsbaum.h"
+
+1774221149 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\game.cpp
+	"Game.h"
+	<iostream>
+	<vector>
+	<memory>
+	"RiskyCharacter.h"
+	"MixCharacter.h"
+	"NoRiskyCharacter.h"
+	"Team.h"
+
+1774200583 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\healentscheidungsbaum.cpp
+	"HealEntscheidungsbaum.h"
+
+1774198156 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\mixcharacter.cpp
+	"MixCharacter.h"
+	"Character.h"
+	"Ability.h"
+	<iostream>
+
+1774198168 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\noriskycharacter.cpp
+	"NoRiskyCharacter.h"
+	"Character.h"
+
+1774200561 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\rageentscheidungsbaum.cpp
+	"RageEntscheidungsbaum.h"
+
+1774198166 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\riskycharacter.cpp
+	"RiskyCharacter.h"
+	"Character.h"
+
+1774128752 source:d:\work\fh\semester 2\oop\übungen\Übung_4\mortal_kombat_game\mortal_kombat\src\team.cpp
+	"Team.h"
+	"Character.h"
+

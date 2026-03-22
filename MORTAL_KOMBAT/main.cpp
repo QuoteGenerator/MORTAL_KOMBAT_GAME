@@ -23,7 +23,7 @@ int main()
 
     game.addAbilityToGame(std::make_unique<Ability>("Uppercut", 30, 50));
     game.addAbilityToGame(std::make_unique<Ability>("Leg Kick", 15, 90));
-    game.addAbilityToGame(std::make_unique<Ability>("Double Hit (2x Attack)", 10, 80));
+    game.addAbilityToGame(std::make_unique<Ability>("Punch", 10, 100));
 
     int menuInput = 0;
     while(1){
