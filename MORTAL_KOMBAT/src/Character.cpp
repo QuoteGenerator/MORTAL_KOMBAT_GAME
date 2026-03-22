@@ -44,4 +44,11 @@ void Character::addCharacterAbility(Ability& newAbility, int index){
     abilitys[index] = newAbility.clone();
 }
 
+void Character::increaseLosses(){
+    lostGames += 1;
+}
+void Character::increaseWins(){
+    wonGames += 1;
+}
+
 

@@ -131,7 +131,13 @@ void Game::startFight(Team& t_1, Team& t_2){
             allCharactersFromTeam_t2[rand() % allCharactersFromTeam_t2.size()]->decreaseHp(allCharactersFromTeam_t1[i]->dealDamage(combatIndex));
             for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); ){
                 if((*c)->getHealthPoints() <= 0){
-                        std::cout << "\n\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    std::cout << "\n\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    for(auto original = allCharacters.begin(); original != allCharacters.end(); original++){
+                        if((*original)->getName() == (*c)->getName()){
+                            (*original)->increaseLosses();
+                            break;
+                        }
+                    }
                     c = allCharactersFromTeam_t2.erase(c);
                 } else {
                     c++;
@@ -153,7 +159,14 @@ void Game::startFight(Team& t_1, Team& t_2){
 
             for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); ){
                 if((*c)->getHealthPoints() <= 0){
+                    //increase losses
                     std::cout << "\n\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    for(auto original = allCharacters.begin(); original != allCharacters.end(); original++){
+                        if((*original)->getName() == (*c)->getName()){
+                            (*original)->increaseLosses();
+                            break;
+                        }
+                    }
                     c = allCharactersFromTeam_t1.erase(c);
                 } else {
                     c++;
@@ -190,10 +203,25 @@ void Game::startFight(Team& t_1, Team& t_2){
         std::cout << "\n\n!!!IT IS A DRAW!!!\n\n";
     } else if(allCharactersFromTeam_t1.empty()){
         std::cout << "\n\n!!!TEAM 2 WINS!!!\n\n";
+        for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); ++c){
+            for(auto original = allCharacters.begin(); original != allCharacters.end(); ++original){
+                if((*original)->getName() == (*c)->getName()){
+                    (*original)->increaseWins();
+                    break;
+                }
+            }
+        }
     } else if(allCharactersFromTeam_t2.empty()){
         std::cout << "\n\n!!!TEAM 1 WINS!!!\n\n";
+        for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); ++c){
+            for(auto original = allCharacters.begin(); original != allCharacters.end(); ++original){
+                if((*original)->getName() == (*c)->getName()){
+                    (*original)->increaseWins();
+                    break;
+                }
+            }
+        }
     }
-
 }
 
 void Game::Player_VS_Player(std::string gameMode){

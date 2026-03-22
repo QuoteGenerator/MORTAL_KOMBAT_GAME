@@ -24,6 +24,9 @@ class Character
         void addCharacterAbility(Ability& newAbility, int index);
         void decreaseHp(int dealedDamage);
 
+        void increaseLosses();
+        void increaseWins();
+
 
 
     protected:
