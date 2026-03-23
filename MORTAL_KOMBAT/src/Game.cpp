@@ -732,11 +732,13 @@ void Game::printCharacterCreation(){
         if(createCharacterInput == 1){
             addCharacterToGame(std::make_unique<RiskyCharacter>(name, healthPoints));
         }
-        if(createCharacterInput == 2){
+        else if(createCharacterInput == 2){
             addCharacterToGame(std::make_unique<MixCharacter>(name, healthPoints));
         }
-        if(createCharacterInput == 3){
+        else if(createCharacterInput == 3){
             addCharacterToGame(std::make_unique<NoRiskyCharacter>(name, healthPoints));
+        } else {
+            std::cout << "WRONG INPUT!";
         }
     }
 
@@ -771,6 +773,9 @@ void Game::printCharacters(){
 
     std::cout << "\n(3) NoRisky"
               << "\n    - -10% hit damage\n";
+
+    std::cout << "\nAll Entscheidungsbaeume: \n\n";
+    printEntscheidungsbaeume();
 }
 
 void Game::addCharacterToGame(std::unique_ptr<Character> newCharacter){
@@ -818,3 +823,22 @@ void Game::printAllAbilitys(){
         i++;
     }
 }
+
+
+
+
+void Game::addEntscheidungsbaumToGame(std::unique_ptr<Entscheidungsbaum> newEntscheidungsbaum){
+    allEntscheidungsbaum.push_back(std::move(newEntscheidungsbaum));
+}
+
+
+void Game::printEntscheidungsbaeume(){
+    int i = 0;
+    for(auto a = allEntscheidungsbaum.begin(); a != allEntscheidungsbaum.end(); a++){
+        std::cout << "- "
+        <<"("<<i<<")"
+        << "Name: " << (*a)->getName() << " Description: " << (*a)->getDescription() << "\n\n";
+        i++;
+    }
+}
+

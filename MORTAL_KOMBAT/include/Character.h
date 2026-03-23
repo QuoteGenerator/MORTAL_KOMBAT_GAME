@@ -37,11 +37,11 @@ class Character
 
     private:
         std::array<std::unique_ptr<Ability>, 2> abilitys;
+        std::array<std::unique_ptr<Entscheidungsbaum>, 1> meinEntscheidungsbaum;
         std::string name;
         int healthPoints;
         int lostGames = 0;
         int wonGames = 0;
-        std::unique_ptr<Entscheidungsbaum> entscheidungsbaum;
 
 };
 

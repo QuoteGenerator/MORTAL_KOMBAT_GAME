@@ -1,11 +1,15 @@
 #include "Entscheidungsbaum.h"
 
-Entscheidungsbaum::Entscheidungsbaum()
+Entscheidungsbaum::Entscheidungsbaum(std::string newName, std::string newDescription)
 {
-    //ctor
+    name = newName;
+    description = newDescription;
 }
 
-Entscheidungsbaum::~Entscheidungsbaum()
-{
-    //dtor
+std::string Entscheidungsbaum::getName(){
+    return name;
+}
+
+std::string Entscheidungsbaum::getDescription(){
+    return description;
 }

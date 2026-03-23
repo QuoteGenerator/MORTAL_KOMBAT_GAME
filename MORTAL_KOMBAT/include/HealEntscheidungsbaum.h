@@ -7,12 +7,8 @@
 class HealEntscheidungsbaum : public Entscheidungsbaum
 {
     public:
-        HealEntscheidungsbaum();
-        virtual ~HealEntscheidungsbaum();
+        HealEntscheidungsbaum(std::string newName, std::string description);
 
-    protected:
-
-    private:
 };
 
 #endif // HEALENTSCHEIDUNGSBAUM_H

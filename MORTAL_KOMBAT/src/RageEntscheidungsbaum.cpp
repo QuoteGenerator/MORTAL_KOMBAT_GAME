@@ -1,11 +1,6 @@
 #include "RageEntscheidungsbaum.h"
 
-RageEntscheidungsbaum::RageEntscheidungsbaum()
+RageEntscheidungsbaum::RageEntscheidungsbaum(std::string newName, std::string description) : Entscheidungsbaum(newName, description)
 {
     //ctor
-}
-
-RageEntscheidungsbaum::~RageEntscheidungsbaum()
-{
-    //dtor
 }

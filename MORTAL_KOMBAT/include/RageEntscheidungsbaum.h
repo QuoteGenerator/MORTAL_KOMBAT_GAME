@@ -7,12 +7,7 @@
 class RageEntscheidungsbaum : public Entscheidungsbaum
 {
     public:
-        RageEntscheidungsbaum();
-        virtual ~RageEntscheidungsbaum();
-
-    protected:
-
-    private:
+        RageEntscheidungsbaum(std::string newName, std::string description);
 };
 
 #endif // RAGEENTSCHEIDUNGSBAUM_H

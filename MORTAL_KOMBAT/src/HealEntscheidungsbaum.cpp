@@ -1,11 +1,6 @@
 #include "HealEntscheidungsbaum.h"
 
-HealEntscheidungsbaum::HealEntscheidungsbaum()
+HealEntscheidungsbaum::HealEntscheidungsbaum(std::string newName, std::string description) : Entscheidungsbaum(newName, description)
 {
     //ctor
-}
-
-HealEntscheidungsbaum::~HealEntscheidungsbaum()
-{
-    //dtor
 }

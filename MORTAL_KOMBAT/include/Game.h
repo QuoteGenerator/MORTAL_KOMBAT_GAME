@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Ability.h"
 #include "Team.h"
+#include "Entscheidungsbaum.h"
 #include <vector>
 #include <memory>
 
@@ -17,6 +18,7 @@ class Game
         void printGameModes(); //1v1 or 3v3 => Player vs Player, NPC vs NPC, Player vs NPC
         void printCharacterCreation(); //character hinzufügen oder löschen
         void printCharacters(); //Alle Character und Statistik anzeigen und Abilitys
+        void printEntscheidungsbaeume();
         void quit(); //Spiel beenden;
 
         void printChooseCharacter(std::string gameMode);
@@ -24,6 +26,7 @@ class Game
 
         void addCharacterToGame(std::unique_ptr<Character> newCharacter);
         void addAbilityToGame(std::unique_ptr<Ability> newAbility);
+        void addEntscheidungsbaumToGame(std::unique_ptr<Entscheidungsbaum> newEntscheidungsbaum);
         std::unique_ptr<Ability>& getAllAbilitys();
 
         void printAllCharacters();
@@ -44,6 +47,7 @@ class Game
     private:
         std::vector<std::unique_ptr<Character>> allCharacters;
         std::vector<std::unique_ptr<Ability>> allAbilitys;
+        std::vector<std::unique_ptr<Entscheidungsbaum>> allEntscheidungsbaum;
 };
 
 #endif // GAME_H
