@@ -15,13 +15,6 @@ std::string MixCharacter::getCharacterTypeName() const{
 std::unique_ptr<Character> MixCharacter::clone(){
     auto copiedCharacter = std::make_unique<MixCharacter>(getName(), getHealthPoints());
 
-    auto& abilities = getCharacterAbilitys();
-    for (int i = 0; i < 2; i++) {
-        if (abilities[i]) {
-            copiedCharacter->addCharacterAbility(*abilities[i], i);
-        }
-    }
-
     return copiedCharacter;
 }
 

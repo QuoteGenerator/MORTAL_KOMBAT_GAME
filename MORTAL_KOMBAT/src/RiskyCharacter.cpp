@@ -15,13 +15,6 @@ std::string RiskyCharacter::getCharacterTypeName() const{
 std::unique_ptr<Character> RiskyCharacter::clone(){
     auto copiedCharacter = std::make_unique<RiskyCharacter>(getName(), getHealthPoints());
 
-    auto& abilities = getCharacterAbilitys();
-    for (int i = 0; i < 2; i++) {
-        if (abilities[i]) {
-            copiedCharacter->addCharacterAbility(*abilities[i], i);
-        }
-    }
-
     return copiedCharacter;
 }
 

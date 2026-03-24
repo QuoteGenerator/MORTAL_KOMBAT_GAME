@@ -27,15 +27,26 @@ int main()
     game.addAbilityToGame(std::make_unique<Ability>("Leg Kick", 15, 90));
     game.addAbilityToGame(std::make_unique<Ability>("Punch", 10, 100));
 
-    game.addEntscheidungsbaumToGame(std::make_unique<RageEntscheidungsbaum>("Rage", "Attacks_the_enemy_with_most_Hp,_sometimes!"));
-    game.addEntscheidungsbaumToGame(std::make_unique<HealEntscheidungsbaum>("Heal", "Heals_by_20%,_when_under_20%_hp,_sometimes!"));
+    game.addEntscheidungsbaumToGame(std::make_unique<RageEntscheidungsbaum>("Rage", "10% chance, to make an extra -10hp on the enemy with most hp!"));
+    game.addEntscheidungsbaumToGame(std::make_unique<HealEntscheidungsbaum>("Heal", "20% chance, to heal when under 20% Hp"));
 
 
     int menuInput = 0;
     while(1){
         game.printGameMenu();
         std::cout << "Choose: ";
-        std::cin >> menuInput;
+        while(true){
+            if(!(std::cin >> menuInput)){
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                std::cout << "WRONG INPUT!\n";
+                continue;
+            }
+            if(menuInput > 0 && menuInput < 5){
+                break;
+            }
+            std::cout << "Out of range!\nChoose 1,2,3 or 4!: ";
+        }
         switch(menuInput){
             case 1:
                 game.printGameModes();

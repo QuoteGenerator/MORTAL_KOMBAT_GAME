@@ -15,7 +15,7 @@ Game::Game()
 }
 
 void Game::printGameMenu(){
-    std::cout << "\n\033[32mMORTAL KOMBAT\033[0m"<< std::endl;
+    std::cout << "\n\033[33mMORTAL KOMBAT\033[0m"<< std::endl;
     std::cout << "(1) FIGHT" << std::endl;
     std::cout << "(2) CREATE CHARACTER" << std::endl;
     std::cout << "(3) CHARACTERS AND ABILITYS" << std::endl;
@@ -137,6 +137,42 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
         }
     }
 
+
+    int chosenEntscheidungsbaum = 0;
+    std::cout << "\n\n\n\nAll Entscheidungsbaeume: " << std::endl;
+    printEntscheidungsbaeume();
+
+    std::cout << "\nTeam1:";
+    if(npc_1){ std::cout << " [NPC_1]:"; }
+
+    for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); c++){
+        std::cout << "\nChoose Entscheidungsbaeume for: " << (*c)->getName() << std::endl;
+        if(npc_1){
+            chosenEntscheidungsbaum = rand() % allEntscheidungsbaum.size();
+            std::cout << "Entscheidungsbaum: " << chosenEntscheidungsbaum << " [NPC]\n";
+            (*c)->addCharacterEntscheidungsbaum(*allEntscheidungsbaum[chosenEntscheidungsbaum]);
+        } else {
+            while(true){
+                std::cout << "Entscheidungsbaum: ";
+
+                if(!(std::cin >> chosenEntscheidungsbaum)){
+                    std::cin.clear();
+                    std::cin.ignore(1000, '\n');
+                    std::cout << "Invalid input! Enter a number.\n";
+                    continue;
+                }
+
+                if(chosenEntscheidungsbaum >= 0 && chosenEntscheidungsbaum < allEntscheidungsbaum.size()){
+                    (*c)->addCharacterEntscheidungsbaum(*allEntscheidungsbaum[chosenEntscheidungsbaum]);
+                    break;
+                }
+
+                std::cout << "Invalid choice! Choose between 0 and " << allEntscheidungsbaum.size()-1 << "\n";
+            }
+        }
+    }
+
+
     std::cout << "\nTeam2:";
     if(npc_2){ std::cout << " [NPC_2]:"; }
 
@@ -169,6 +205,42 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
         }
     }
 
+
+
+    chosenEntscheidungsbaum = 0;
+    std::cout << "\n\n\n\nAll Entscheidungsbaeume: " << std::endl;
+    printEntscheidungsbaeume();
+
+    std::cout << "\nTeam2:";
+    if(npc_1){ std::cout << " [NPC_2]:"; }
+
+    for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); c++){
+        std::cout << "\nChoose Entscheidungsbaeume for: " << (*c)->getName() << std::endl;
+        if(npc_2){
+            chosenEntscheidungsbaum = rand() % allEntscheidungsbaum.size();
+            std::cout << "Entscheidungsbaum: " << chosenEntscheidungsbaum << " [NPC]\n";
+            (*c)->addCharacterEntscheidungsbaum(*allEntscheidungsbaum[chosenEntscheidungsbaum]);
+        } else {
+            while(true){
+                std::cout << "Entscheidungsbaum: ";
+
+                if(!(std::cin >> chosenEntscheidungsbaum)){
+                    std::cin.clear();
+                    std::cin.ignore(1000, '\n');
+                    std::cout << "Invalid input! Enter a number.\n";
+                    continue;
+                }
+
+                if(chosenEntscheidungsbaum >= 0 && chosenEntscheidungsbaum < allEntscheidungsbaum.size()){
+                    (*c)->addCharacterEntscheidungsbaum(*allEntscheidungsbaum[chosenEntscheidungsbaum]);
+                    break;
+                }
+
+                std::cout << "Invalid choice! Choose between 0 and " << allEntscheidungsbaum.size()-1 << "\n";
+            }
+        }
+    }
+
     printCharactersFromTeams(allCharactersFromTeam_t1, allCharactersFromTeam_t2);
 
     std::cout << std::endl;
@@ -186,7 +258,7 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
         for(int i = 0; i < allCharactersFromTeam_t1.size(); i++){
             if(npc_1){
                 combatIndex = rand() % 2;
-                std::cout << allCharactersFromTeam_t1[i]->getName() << " Choose: " << combatIndex << " [NPC]\n";
+                std::cout << "\n"<<allCharactersFromTeam_t1[i]->getName() << " Choose: " << combatIndex << " [NPC]\n";
             } else {
                 while(true){
                     std::cout << allCharactersFromTeam_t1[i]->getName() << " Choose: ";
@@ -228,10 +300,10 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
                         }
 
                         if(!found){
-                            for(auto original = allCharacters.begin(); original != allCharacters.end(); ++original){
-                                if((*original)->getName() == allCharactersFromTeam_t1[i]->getName()){
-                                    (*original)->increaseLosses();
-                                    alreadyLost.push_back((*original)->getName());
+                            for(auto c = allCharacters.begin(); c != allCharacters.end(); c++){
+                                if((*c)->getName() == allCharactersFromTeam_t1[i]->getName()){
+                                    (*c)->increaseLosses();
+                                    alreadyLost.push_back((*c)->getName());
                                     break;
                                 }
                             }
@@ -247,12 +319,17 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
             allCharactersFromTeam_t2[index]->decreaseHp(damageAmount);
             std::cout << allCharactersFromTeam_t1[i]->getName() << " deals " << damageAmount << " Damage to -> " << allCharactersFromTeam_t2[index]->getName() << "\n\n";
 
+            //Entscheidungsbaum
+            if(allCharactersFromTeam_t1[i] != nullptr){
+                allCharactersFromTeam_t1[i]->getEntscheidungsbaum()->afterAttack(*allCharactersFromTeam_t1[i], allCharactersFromTeam_t2);
+            }
+
             for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); ){
                 if((*c)->getHealthPoints() <= 0){
-                    std::cout << "\n\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    std::cout << "\033[33mFrom Team 2: " << (*c)->getName() << " DIED!!!\033[0m\n";
 
                     bool found = false;
-                    for(const auto& name : alreadyLost){
+                    for(auto& name : alreadyLost){
                         if(name == (*c)->getName()){
                             found = true;
                             break;
@@ -260,10 +337,10 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
                     }
 
                     if(!found){
-                        for(auto original = allCharacters.begin(); original != allCharacters.end(); ++original){
-                            if((*original)->getName() == (*c)->getName()){
-                                (*original)->increaseLosses();
-                                alreadyLost.push_back((*original)->getName());
+                        for(auto c = allCharacters.begin(); c != allCharacters.end(); c++){
+                            if((*c)->getName() == (*c)->getName()){
+                                (*c)->increaseLosses();
+                                alreadyLost.push_back((*c)->getName());
                                 break;
                             }
                         }
@@ -271,16 +348,16 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
 
                     c = allCharactersFromTeam_t2.erase(c);
                 } else {
-                    ++c;
+                    c++;
                 }
             }
 
-            if(allCharactersFromTeam_t2.empty()){
+            if(allCharactersFromTeam_t2.empty()){ // for schleife stoppen, angriffe, weil keine gegner mehr vorhanden
                 break;
             }
         }
 
-        if(allCharactersFromTeam_t2.empty()){
+        if(allCharactersFromTeam_t2.empty()){ //stoppen bevor team2 drankommt, die while schleife
             break;
         }
 
@@ -290,7 +367,7 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
         for(int i = 0; i < allCharactersFromTeam_t2.size(); i++){
             if(npc_2){
                 combatIndex = rand() % 2;
-                std::cout << allCharactersFromTeam_t2[i]->getName() << " Choose: " << combatIndex << " [NPC]\n";
+                std::cout << "\n" << allCharactersFromTeam_t2[i]->getName() << " Choose: " << combatIndex << " [NPC]\n";
             } else {
                 while(true){
                     std::cout << allCharactersFromTeam_t2[i]->getName() << " Choose: ";
@@ -332,17 +409,17 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
                         }
 
                         if(!found){
-                            for(auto original = allCharacters.begin(); original != allCharacters.end(); ++original){
-                                if((*original)->getName() == allCharactersFromTeam_t2[i]->getName()){
-                                    (*original)->increaseLosses();
-                                    alreadyLost.push_back((*original)->getName());
+                            for(auto c = allCharacters.begin(); c != allCharacters.end(); ++c){
+                                if((*c)->getName() == allCharactersFromTeam_t2[i]->getName()){
+                                    (*c)->increaseLosses();
+                                    alreadyLost.push_back((*c)->getName());
                                     break;
                                 }
                             }
                         }
 
                         allCharactersFromTeam_t2.erase(allCharactersFromTeam_t2.begin() + i);
-                        --i;
+                        i++;
                         continue;
                     }
                 }
@@ -351,12 +428,17 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
             allCharactersFromTeam_t1[index]->decreaseHp(damageAmount);
             std::cout << allCharactersFromTeam_t2[i]->getName() << " deals " << damageAmount << " Damage to -> " << allCharactersFromTeam_t1[index]->getName() << "\n\n";
 
+            //Entscheidungsbaum
+            if(allCharactersFromTeam_t2[i] != nullptr){
+                allCharactersFromTeam_t2[i]->getEntscheidungsbaum()->afterAttack(*allCharactersFromTeam_t2[i], allCharactersFromTeam_t1);
+            }
+
             for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); ){
                 if((*c)->getHealthPoints() <= 0){
-                    std::cout << "\n\033[33mFrom Team 2: " << (*c)->getName() << " DIED!!!\033[0m\n";
+                    std::cout << "\033[33mFrom Team 1: " << (*c)->getName() << " DIED!!!\033[0m\n";
 
                     bool found = false;
-                    for(const auto& name : alreadyLost){
+                    for(auto& name : alreadyLost){
                         if(name == (*c)->getName()){
                             found = true;
                             break;
@@ -364,10 +446,10 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
                     }
 
                     if(!found){
-                        for(auto original = allCharacters.begin(); original != allCharacters.end(); ++original){
-                            if((*original)->getName() == (*c)->getName()){
-                                (*original)->increaseLosses();
-                                alreadyLost.push_back((*original)->getName());
+                        for(auto c = allCharacters.begin(); c != allCharacters.end(); ++c){
+                            if((*c)->getName() == (*c)->getName()){
+                                (*c)->increaseLosses();
+                                alreadyLost.push_back((*c)->getName());
                                 break;
                             }
                         }
@@ -375,7 +457,7 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
 
                     c = allCharactersFromTeam_t1.erase(c);
                 } else {
-                    ++c;
+                    c++;
                 }
             }
 
@@ -383,8 +465,7 @@ void Game::startFight(Team& t_1, Team& t_2, bool npc_1, bool npc_2){
                 break;
             }
         }
-
-        if(allCharactersFromTeam_t1.empty()){
+        if(allCharactersFromTeam_t1.empty()){ //wenn keine gegner mehr dann, while schleife abbrechen!
             break;
         }
 
@@ -715,7 +796,7 @@ void Game::printCharacterCreation(){
 
             std::cout << "\n(1) Risky"
                       << "\n    + +40% hit damage"
-                      << "\n    + -50% hit chance\n";
+                      << "\n    - -50% hit chance\n";
 
             std::cout << "\n(2) Mix"
                       << "\n    + +10% hit damage"
@@ -775,6 +856,7 @@ void Game::printCharacters(){
               << "\n    - -10% hit damage\n";
 
     std::cout << "\nAll Entscheidungsbaeume: \n\n";
+
     printEntscheidungsbaeume();
 }
 
@@ -787,27 +869,35 @@ void Game::addAbilityToGame(std::unique_ptr<Ability> newAbility){
 }
 
 void Game::quit(){
-    std::cout << "FATALITY!!!";
+    for(int j = 0; j < 100; j++){
+        for(int i = 0; i < 100; i++){
+            std::cout << "FATALITY!!!"; // mit farbe wäre cooler
+        }
+        std::cout << "\n";
+    }
+
 }
 
 void Game::printCharactersFromTeams(std::vector<std::unique_ptr<Character>>& allCharactersFromTeam_t1,
                                     std::vector<std::unique_ptr<Character>>& allCharactersFromTeam_t2){
-    std::cout << "\n\nTeam1::-----------------------------------------------------------------------------------------------------\n";
+    std::cout << "\n\nTeam1::----------------------------------------------------------------------------------------------------------------------------\n";
     for(auto c = allCharactersFromTeam_t1.begin(); c != allCharactersFromTeam_t1.end(); c++){
         std::cout << "Name: " << (*c)->getName() << "\t\t"
         << "Hp: " << (*c)->getHealthPoints() << "\t\t"
         << "Class: " << (*c)->getCharacterTypeName() << "\t"
         << "Ability [0]: " << (*c)->getCharacterAbilitys()[0]->getName() << "\t"
-        << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName();
+        << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName() << "\t"
+        << "Entscheidungsbaum: " << (*c)->getEntscheidungsbaum()->getName();
         std::cout << std::endl;
     }
-    std::cout << "\n\nTeam2:-----------------------------------------------------------------------------------------------------\n";
+    std::cout << "\n\nTeam2:----------------------------------------------------------------------------------------------------------------------------\n";
     for(auto c = allCharactersFromTeam_t2.begin(); c != allCharactersFromTeam_t2.end(); c++){
         std::cout << "Name: " << (*c)->getName() << "\t\t"
         << "Hp: " << (*c)->getHealthPoints() << "\t\t"
         << "Class: " << (*c)->getCharacterTypeName() << "\t"
         << "Ability [0]: " << (*c)->getCharacterAbilitys()[0]->getName() << "\t"
-        << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName();
+        << "Ability [1]: " << (*c)->getCharacterAbilitys()[1]->getName() << "\t"
+        << "Entscheidungsbaum: " << (*c)->getEntscheidungsbaum()->getName();
         std::cout << std::endl;
     }
 }
@@ -836,9 +926,11 @@ void Game::printEntscheidungsbaeume(){
     int i = 0;
     for(auto a = allEntscheidungsbaum.begin(); a != allEntscheidungsbaum.end(); a++){
         std::cout << "- "
-        <<"("<<i<<")"
-        << "Name: " << (*a)->getName() << " Description: " << (*a)->getDescription() << "\n\n";
+        <<"("<<i<<") "
+        << "Name: " << (*a)->getName() << ", Description: " << (*a)->getDescription() << "\n\n";
         i++;
     }
 }
+
+
 

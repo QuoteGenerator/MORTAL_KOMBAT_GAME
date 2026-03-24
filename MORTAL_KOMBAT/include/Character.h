@@ -5,7 +5,8 @@
 #include <memory>
 #include <array>
 #include "Ability.h"
-#include "Entscheidungsbaum.h"
+
+class Entscheidungsbaum;
 
 class Character
 {
@@ -23,6 +24,8 @@ class Character
 
         std::array<std::unique_ptr<Ability>, 2>& getCharacterAbilitys();
         void addCharacterAbility(Ability& newAbility, int index);
+        void addCharacterEntscheidungsbaum(Entscheidungsbaum& newEntscheidungsbaum);
+        void increaseHp(int healingAmount);
         void decreaseHp(int dealedDamage);
 
         void increaseLosses();
